@@ -1,0 +1,496 @@
+/*
+ * index.htmlページ用スタイル
+ */
+@use '../globals' as *;
+@use '../parts/fonts' as *;
+@use '../parts/common' as *;
+@use '../parts/panel' as *;
+
+// bodyタグに付与しているclass="home"でスタイルの適用を判定
+body.home {
+  .fv {
+    position: relative;
+    height: 100vh;
+  }
+
+  .fv__content {
+    @extend .font-48-110;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    width: max-content;
+    text-align: left;
+    margin: 0 auto;
+    overflow: visible;
+
+    @include mq('xl') {
+      position: absolute;
+      top: auto;
+      transform: none;
+      bottom: 10%;
+      left: 5%;
+      max-width: 30em;
+      width: auto;
+    }
+  }
+
+  .fv__text-letter {
+    display: block;
+    overflow: visible;
+    width: max-content;
+    min-width: 100%;
+    @include mq('xl') {
+      display: block;
+      position: relative;
+    }
+  }
+
+  .fv__text-shader {
+    display: none;
+    position: absolute;
+    margin-left: -0.03em;
+    pointer-events: none;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 450px;
+    transform: translateX(-2000px);
+
+    @include mq('xl') {
+      display: none;
+    }
+  }
+
+  .fv__sub-title {
+    @extend .font-14-16;
+    font-family: $accent-font;
+  }
+
+  .fv__title {
+    font-size: 0.7em;
+    position: relative;
+    color: var(--c-main);
+    font-weight: 700;
+    margin: 25px 0;
+    line-height: 1;
+    text-align: center;
+
+    @include mq('sm') {
+      font-size: 0.85em;
+    }
+
+    @include mq('md') {
+      font-size: 0.95em;
+    }
+
+    @include mq('tablet') {
+      font-size: 1.1em;
+    }
+
+    @include mq('lg') {
+      font-size: 1em;
+    }
+  }
+
+  .fv__title-text {
+    white-space: nowrap;
+    display: inline-block;
+    min-width: max-content;
+  }
+
+  .fv__desc {
+    @extend .font-16-24;
+    padding-top: 6px;
+  }
+
+  .fv__slider {
+    aspect-ratio: 16/9;
+  }
+
+  .fv__main {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    @include mq('xl') {
+      top: 50%;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+    }
+  }
+
+  .fv__holder {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @include mq('xl') {
+      width: 60%;
+      max-width: 950px;
+      margin-bottom: 20%;
+    }
+  }
+
+  .fv__nav {
+    font-size: fluid-text(50px, 120px);
+    text-align: right;
+    position: absolute;
+    bottom: 10%;
+    right: 0.3em;
+    height: 1em;
+    width: 100%;
+  }
+
+  .fv__btn {
+    background: none;
+    border: 0;
+    opacity: 0.7;
+    cursor: pointer;
+    padding: 0;
+
+    & svg {
+      width: 1em;
+      height: 1em;
+    }
+
+    &:active {
+      transform: scale(0.85);
+    }
+
+    &.prev {
+      & svg {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    &:hover circle {
+      @include mq('xl') {
+        transition: opacity 0.5s;
+        opacity: 0;
+      }
+    }
+  }
+
+  .vision__inner {
+    display: flex;
+    flex-direction: column;
+
+    @include mq('tablet') {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    @include mq('xl') {
+      flex-direction: row;
+    }
+  }
+
+  .vision__left {
+    position: relative;
+    flex: 1 0 50%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vision__raymarching {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    margin-bottom: 2em;
+
+    @include mq('xl') {
+      max-width: unset;
+      margin: 0;
+    }
+  }
+
+  .vision__fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 650px;
+    height: 80%;
+    transform: translate(-50%, -50%);
+  }
+
+  .vision__right {
+    flex: 1 0 50%;
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+    @extend .font-16-20;
+  }
+
+  .vision__right-inner {
+    max-width: 575px;
+    margin: 0 auto;
+  }
+
+  .vision__title {
+    @include section-title;
+    overflow: hidden;
+
+    &.sm .vision__title-text {
+      @include mq('xl') {
+        position: absolute;
+        transform: translateX(3000px);
+      }
+    }
+
+    &.pc .vision__title-text {
+      position: absolute;
+      transform: translateX(2000px);
+      @include mq('xl') {
+        position: relative;
+        transform: none;
+      }
+    }
+  }
+
+  .vision__p {
+    &:first-child {
+      margin-bottom: 2em;
+    }
+  }
+
+  .vision__more {
+    margin-top: 4em;
+    text-align: right;
+
+    @include mq('xl') {
+      text-align: left;
+    }
+  }
+
+  .diverse {
+    @include mq('xl') {
+      min-height: 100vh;
+    }
+  }
+
+  .diverse__inner {
+    @extend .font-16-20;
+    display: flex;
+    flex-direction: column;
+
+    @include mq('tablet') {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    @include mq('xl') {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .diverse__right {
+    flex: 1 0 50%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .diverse__holder {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    max-width: 30em;
+    margin: 0 auto;
+
+    @include mq('xl') {
+      height: 70vh;
+    }
+  }
+
+  .diverse__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .diverse__left {
+    flex: 1 0 50%;
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .diverse__left-inner {
+    max-width: 30em;
+    margin: 0 auto;
+  }
+
+  .diverse__title {
+    @include section-title;
+  }
+
+  .diverse__more {
+    margin: 2em 0;
+    text-align: right;
+
+    @include mq('xl') {
+      margin-top: 4em;
+      text-align: left;
+    }
+  }
+
+  .skill {
+    display: flex;
+    align-items: start;
+    padding: 60px 16px;
+    text-align: left;
+    position: relative;
+
+    @include mq('xl') {
+      min-height: 100vh;
+    }
+  }
+
+  .skill__inner {
+    width: 100%;
+  }
+
+  .skill__title {
+    @include section-title;
+  }
+
+  .skill__desc {
+    @extend .font-16-20;
+    max-width: 21em;
+    margin: 0 auto;
+    @include mq('xl') {
+      margin: 0;
+    }
+  }
+
+  .skill__holder {
+    position: relative;
+    margin: 0 auto;
+    font-size: fluid-text(14px, 22px);
+    width: 24em;
+    height: 18em;
+    text-align: center;
+    margin-top: 3em;
+  }
+
+  .skill__slider {
+    width: 100%;
+    aspect-ratio: 7/4;
+  }
+
+  .skill__content {
+    @extend .font-14-20;
+
+    line-height: 1;
+    margin-top: 1em;
+
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 30em;
+    text-align: left;
+
+    line-height: 1;
+    padding: 1em 0;
+    margin: 0 auto;
+    margin-top: 1em;
+
+    @include mq('xl') {
+      position: absolute;
+      padding: 1rem 2rem;
+      right: 0;
+      bottom: 0;
+      text-align: right;
+    }
+  }
+
+  .skill__ul {
+    position: relative;
+    counter-reset: number 0;
+    min-height: to-rem(248px);
+    width: 100%;
+    list-style: none;
+    transition: transform 0.4s;
+  }
+
+  .skill__li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s;
+    opacity: 0;
+
+    &:first-child {
+      opacity: 1;
+    }
+  }
+
+  .skill__headline {
+    @extend .font-36-48;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+
+    &::before {
+      font-size: 1.6em;
+      counter-increment: number 1;
+      content: '0' counter(number) ' ';
+    }
+  }
+
+  .skill__text {
+    @extend .font-14-20;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.8;
+
+    @include mq('xl') {
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  .skill .fv__nav {
+    text-align: left;
+  }
+
+  .graphic {
+    text-align: left;
+  }
+
+  .graphic__title {
+    @include section-title;
+  }
+
+  .graphic__subtitle {
+    @extend .font-16-20;
+    margin-bottom: 2em;
+  }
+
+  .graphic__inner {
+    @extend .content-width-narrow;
+  }
+
+  .graphic__more {
+    text-align: right;
+    margin-right: 5%;
+
+    & img {
+      filter: #{'invert()'};
+    }
+  }
+}
