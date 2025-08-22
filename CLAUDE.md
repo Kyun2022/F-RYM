@@ -88,3 +88,39 @@ SCSS organized into:
 - `vendors/`: Third-party CSS
 
 The path alias `#` maps to `/scripts` for cleaner imports throughout the JavaScript modules.
+
+## Cursor Settings & Documentation
+
+### Available Documentation Sources (As of 2025-08-22)
+Cursor's "Indexing & Docs" contains the following indexed documentation:
+- **WebGL-work** (25/3/31) - Three.js patterns and modern WebGL workflows
+- **React-work** (24/6/28) - React 18+ patterns  
+- **Next.js-work** (25/8/22) - Latest Next.js specifications
+- **Tailwind CSS-work** (25/8/20) - Modern CSS design patterns
+- **Astro-work**, **Angular-work**, **PHP-work**, **WordPress-work**, **Python3-work**, etc.
+
+### SpecStory Configuration
+- **Auto Save**: Enabled - AI chat history saved to `./.specstory` directory
+- **Derived Rules**: Enabled - Auto-generates project-specific AI rules based on chat/composer history
+- **Timezone**: UTC for coordinated development
+- **Developer Tools**: Enabled for debugging and state exploration
+
+### Development Approach with Cursor
+1. **Use @WebGL-work** for Three.js best practices and modern patterns
+2. **Use @Docs** for official library documentation (GSAP, Three.js, etc.)
+3. **Use @Web** for latest community tutorials and updates
+4. **Leverage derived rules** - Cursor automatically learns project patterns from our development history
+
+### Current Code Assessment
+The F-RYM codebase already uses modern patterns:
+- ✅ ES6+ imports/exports with named imports from Three.js
+- ✅ Modern Three.js patterns (r150+ compatible)
+- ✅ EffectComposer for post-processing
+- ✅ Modular architecture with path aliases
+- ✅ Performance monitoring with Stats.js
+
+### Next Steps for Modernization
+- Consider TypeScript integration for better type safety
+- Explore latest Three.js features via @WebGL-work
+- Optimize performance using modern GPU techniques
+- Update GLSL shaders with latest best practices
